@@ -1,4 +1,7 @@
-import 'package:designs/retos/cuadrado_animado.dart';import 'package:flutter/material.dart';
+// import 'package:designs/labs/circular_progres_page.dart';
+// import 'package:designs/pages/grafias_ciculares.dart';
+import 'package:designs/src/pages/slideshow_page.dart';
+import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: CuadradoAnimado(),
+      home: SlideShowPage(),
     );
   }
 }

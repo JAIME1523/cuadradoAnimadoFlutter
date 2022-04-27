@@ -1,4 +1,4 @@
-import 'package:designs/pages/animaciones_pages.dart';
+import 'package:designs/src/pages/animaciones_pages.dart';
 // import 'package:designs/widgets/headers.dart';
 import 'package:flutter/material.dart';
 
