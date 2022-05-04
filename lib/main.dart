@@ -1,9 +1,10 @@
 // import 'package:designs/labs/circular_progres_page.dart';
 // import 'package:designs/pages/grafias_ciculares.dart';
 // import 'package:designs/src/labs/slideshow_page.dart';
+import 'package:designs/src/pages/painterest_page.dart';
 import 'package:flutter/material.dart';
 
-import 'src/pages/slideshow_page.dart';
+// import 'src/pages/slideshow_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home:
-       SildeShowPage(),
+       PrinterestPage(),
     );
   }
 }
