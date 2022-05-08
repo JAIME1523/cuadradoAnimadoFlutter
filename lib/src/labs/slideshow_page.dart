@@ -26,7 +26,7 @@ class _Dots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 60,
       child: Row(
@@ -99,21 +99,19 @@ class _SlidesState extends State<_Slides> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: PageView(
-        controller: pageViewController,
-        children: const [
-          _Slide(
-            svg: 'assets/slide-1.svg',
-          ),
-          _Slide(
-            svg: 'assets/slide-2.svg',
-          ),
-          _Slide(
-            svg: 'assets/slide-3.svg',
-          ),
-        ],
-      ),
+    return PageView(
+      controller: pageViewController,
+      children: const [
+        _Slide(
+          svg: 'assets/slide-1.svg',
+        ),
+        _Slide(
+          svg: 'assets/slide-2.svg',
+        ),
+        _Slide(
+          svg: 'assets/slide-3.svg',
+        ),
+      ],
     );
   }
 }
