@@ -57,7 +57,7 @@ class EmergencypagePage extends StatelessWidget {
           margin: const EdgeInsets.only(top: 200),
           child: ListView(
             //para quitar el efecto de color azul alfinal de la lista
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             children: [
               const SizedBox(
                 height: 80,

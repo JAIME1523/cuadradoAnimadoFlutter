@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_getters_setters
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -147,15 +149,13 @@ class _SlidesState extends State<_Slides> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: PageView(
-          controller: pageViewController,
-          children: widget.slides
-              .map((slide) => _Slide(
-                    slide: slide,
-                  ))
-              .toList()),
-    );
+    return PageView(
+        controller: pageViewController,
+        children: widget.slides
+            .map((slide) => _Slide(
+                  slide: slide,
+                ))
+            .toList());
   }
 }
 

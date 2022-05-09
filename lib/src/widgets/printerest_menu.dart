@@ -11,7 +11,7 @@ class PrinterestButto {
 }
 
 class PrinterestMenu extends StatelessWidget {
-  PrinterestMenu({
+  const PrinterestMenu({
     Key? key,
     this.mostar = true,
     this.backgroundColor = Colors.white,
@@ -132,12 +132,11 @@ class _PrinterestMenuButtom extends StatelessWidget {
         item.onPressed();
       },
       behavior: HitTestBehavior.translucent,
-      child: Container(
-          child: Icon(item.icon,
-              size: (itemSeleccionado == index) ? 35 : 25,
-              color: (itemSeleccionado == index)
-                  ? Provider.of<_MenuModel>(context).activeColor
-                  : Provider.of<_MenuModel>(context).inactiveColor)),
+      child: Icon(item.icon,
+          size: (itemSeleccionado == index) ? 35 : 25,
+          color: (itemSeleccionado == index)
+              ? Provider.of<_MenuModel>(context).activeColor
+              : Provider.of<_MenuModel>(context).inactiveColor),
     );
   }
 }

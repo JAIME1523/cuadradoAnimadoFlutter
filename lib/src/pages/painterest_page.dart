@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:designs/src/widgets/printerest_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -35,7 +37,7 @@ class _MenuLocation extends StatelessWidget {
     final mostar = Provider.of<_MenuModel>(context).mostrar;
     return Positioned(
         bottom: 30,
-        child: Container(
+        child: SizedBox(
             width: widthPantalla,
             child: Align(
                 child: PrinterestMenu(
