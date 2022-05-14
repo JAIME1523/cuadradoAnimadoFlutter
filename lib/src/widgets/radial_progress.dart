@@ -16,7 +16,7 @@ class RadialProgress extends StatefulWidget {
   final porcentaje;
 
   final Color colorPrimario;
-  final Color colorSecundario;
+  final Color? colorSecundario;
   final double grosorSecundario;
   final double grosorPrimario;
 
@@ -63,7 +63,7 @@ class _RadialProgressState extends State<RadialProgress>
                   (widget.porcentaje - diferenciaAnimar) +
                       (diferenciaAnimar + controller.value),
                   widget.colorPrimario,
-                  widget.colorSecundario,
+                  widget.colorSecundario!,
                   widget.grosorSecundario,
                   widget.grosorPrimario),
               // child: ,

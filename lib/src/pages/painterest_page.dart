@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:designs/src/theme/theme.dart';
 import 'package:designs/src/widgets/printerest_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -35,15 +36,16 @@ class _MenuLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     final widthPantalla = MediaQuery.of(context).size.width;
     final mostar = Provider.of<_MenuModel>(context).mostrar;
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
     return Positioned(
         bottom: 30,
         child: SizedBox(
             width: widthPantalla,
             child: Align(
                 child: PrinterestMenu(
-              // activeColor: Colors.pink,
-              // inactiveColor: Colors.blueAccent,
-              // backgroundColor: Colors.pinkAccent,
+              activeColor:appTheme.colorScheme.secondary,
+              // inactiveColor:appTheme.colorScheme.secondary,
+              backgroundColor: appTheme.scaffoldBackgroundColor,
               mostar: mostar,
               items: [
                 PrinterestButto(
