@@ -1,3 +1,5 @@
+import 'package:designs/src/models/layout_model.dart';
+import 'package:designs/src/pages/launcher_tablet_page.dart';
 import 'package:designs/src/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +14,13 @@ import 'package:provider/provider.dart';
 
 // import 'src/pages/slideshow_page.dart';
 
-void main() => runApp(ChangeNotifierProvider(
-    create: ((context) => ThemeChanger(2)), child: MyApp()));
+void main() => runApp(MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_) => ThemeChanger(2)),
+      ChangeNotifierProvider(create: (_) => LayoutModel()),
+    ], child: const MyApp()));
+
+// void main() => runApp(ChangeNotifierProvider(
+//     create: ((context) => ThemeChanger(2)), child: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -22,11 +29,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentTheme = Provider.of<ThemeChanger>(context).currentTheme;
 
-    return  MaterialApp(
+    return MaterialApp(
       theme: currentTheme,
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: LauncherPage(),
+      home: OrientationBuilder(
+          builder: (BuildContext context, Orientation orientation) {
+        final srcreenSized = MediaQuery.of(context).size;
+
+        if (srcreenSized.width > 500) {
+          return const LauncherPageTableta();
+        } else {
+          return const LauncherPage();
+        }
+
+        // print(orientation);
+        //           return Container(
+        //             child: LauncherPage(),
+        //           );
+        //         },
+      }),
     );
   }
 }

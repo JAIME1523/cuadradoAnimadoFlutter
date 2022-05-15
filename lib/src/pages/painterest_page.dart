@@ -34,42 +34,53 @@ class _MenuLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthPantalla = MediaQuery.of(context).size.width;
+    double widthPantalla = MediaQuery.of(context).size.width;
     final mostar = Provider.of<_MenuModel>(context).mostrar;
     final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
+
+    if (widthPantalla > 500) {
+      widthPantalla = widthPantalla - 300;
+    }
     return Positioned(
         bottom: 30,
         child: SizedBox(
             width: widthPantalla,
-            child: Align(
-                child: PrinterestMenu(
-              activeColor:appTheme.colorScheme.secondary,
-              // inactiveColor:appTheme.colorScheme.secondary,
-              backgroundColor: appTheme.scaffoldBackgroundColor,
-              mostar: mostar,
-              items: [
-                PrinterestButto(
-                    icon: Icons.pie_chart,
-                    onPressed: () {
-                      print('pie_chart');
-                    }),
-                PrinterestButto(
-                    icon: Icons.search,
-                    onPressed: () {
-                      print('search');
-                    }),
-                PrinterestButto(
-                    icon: Icons.notifications,
-                    onPressed: () {
-                      print('notifications');
-                    }),
-                PrinterestButto(
-                    icon: Icons.supervised_user_circle,
-                    onPressed: () {
-                      print('supervised_user_circle');
-                    }),
+            child: Row(
+              children: [
+                //spacer permite centar el menu
+                 Spacer(),
+                PrinterestMenu(
+                  activeColor: appTheme.colorScheme.secondary,
+                  // inactiveColor:appTheme.colorScheme.secondary,
+                  backgroundColor: appTheme.scaffoldBackgroundColor,
+                  mostar: mostar,
+                  items: [
+                    PrinterestButto(
+                        icon: Icons.pie_chart,
+                        onPressed: () {
+                          print('pie_chart');
+                        }),
+                    PrinterestButto(
+                        icon: Icons.search,
+                        onPressed: () {
+                          print('search');
+                        }),
+                    PrinterestButto(
+                        icon: Icons.notifications,
+                        onPressed: () {
+                          print('notifications');
+                        }),
+                    PrinterestButto(
+                        icon: Icons.supervised_user_circle,
+                        onPressed: () {
+                          print('supervised_user_circle');
+                        }),
+                  ],
+                ),
+                 Spacer(),
+
               ],
-            ))));
+            )));
   }
 }
 
@@ -105,17 +116,23 @@ class _PinterestGridState extends State<PinterestGrid> {
 
   @override
   Widget build(BuildContext context) {
+    int count;
+    if (MediaQuery.of(context).size.width > 500) {
+      count = 3;
+    } else {
+      count = 2;
+    }
     return GridView.custom(
       controller: controller,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       gridDelegate: SliverWovenGridDelegate.count(
-        crossAxisCount: 2,
+        crossAxisCount: count,
         pattern: [
           const WovenGridTile(1),
           const WovenGridTile(
             5 / 7,
             crossAxisRatio: 0.9,
-            alignment: AlignmentDirectional.centerEnd,
+            // alignment: AlignmentDirectional.,
           ),
         ],
       ),
